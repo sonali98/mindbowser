@@ -45,15 +45,9 @@ public class SignupService {
 		return repos.findById(id);
 	}
 	
-	public String deleteEmployeeById(int id) {
-		String result;
-		try {
-		    repos.deleteById(id);
-			result="Employee successfully deleted";
-			
-		} catch (Exception e) {
-			result="Unable to delete employee";
-		}
-		return result;
+	public void deleteEmployeeById(int id) {
+
+			 repos.deleteById(id);
+
 	}
 }

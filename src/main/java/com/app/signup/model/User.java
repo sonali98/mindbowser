@@ -6,11 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class User {
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "mySeqGen", sequenceName = "userSeq", initialValue = 1, allocationSize = 100)
+    @GeneratedValue(generator = "mySeqGen")
 	private int id;
 	private String email;
 	private String password;

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,10 +73,10 @@ public class SignupController {
 		return service.fetchEmployeeById(id).get();
 	}
 	
-	@GetMapping("/delete/{id}")
+	@DeleteMapping(value ="/delete/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public String deleteEmployeeById(@PathVariable int id){
-		return service.deleteEmployeeById(id);
+	public void deleteEmployeeById(@PathVariable int id){
+		service.deleteEmployeeById(id) ;
 	}
 
 }

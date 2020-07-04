@@ -5,12 +5,14 @@ import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Employee {
 	
 	@Id
-	@GeneratedValue
+	@SequenceGenerator(name = "mySeqGen", sequenceName = "emloyeeSeq", initialValue = 1, allocationSize = 100)
+    @GeneratedValue(generator = "mySeqGen")
 	private int id;
 	private String firstname;
 	private String lastname;
